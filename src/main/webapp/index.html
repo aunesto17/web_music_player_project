@@ -1,0 +1,32 @@
+<html>
+   <head>
+      <title>Alumnos</title>
+
+      <script src = "http://ajax.googleapis.com/ajax/libs/angularjs/1.2.15/angular.min.js"></script>
+
+      <script type="text/javascript">
+         function alumnoController($scope,$http) {
+            $http.get("alumnos").success( function(response) {
+               $scope.alumnos = response;
+            });
+         }
+      </script>
+   </head>
+   <body>
+      <h2>AngularJS Sample Application</h2>
+      <div ng-app="" ng-controller="alumnoController">
+         <table>
+            <tr>
+               <th>Nombres</th>
+               <th>Apellido Paterno</th>
+               <th>Promedio</th>
+            </tr>
+            <tr ng-repeat = "alumno in alumnos">
+               <td>{{ alumno.nombres }}</td>
+               <td>{{ alumno.apellidoPaterno }}</td>
+               <td>{{ alumno.promedio }}</td>
+            </tr>
+         </table>
+      </div>
+   </body>
+</html>
