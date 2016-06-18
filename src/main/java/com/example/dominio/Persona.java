@@ -1,26 +1,13 @@
 package com.example.dominio;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
-
-// Prueba de Control de merge
-// Probando 123
-// Probando merge del branch
-
-@Entity
-public class Persona {
-	@Id
-	@SequenceGenerator(name = "Persona_ID_GENERATOR", sequenceName = "Persona_ID_SEQ")
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "Persona_ID_GENERATOR")
-	public Integer id;
+//No es entity ya que nunca se instancia una clase abstracta.
+//@Entity
+public abstract class Persona {
 	public String nombres;
 	public String apellidoPaterno;
 	public String apellidoMaterno;
 	public String correo;
-	private String contrasena;
+	public String contrasena;
 	
 	
 	public Persona() {
@@ -35,6 +22,8 @@ public class Persona {
 		this.apellidoPaterno= apellidoPaterno;
 		this.apellidoMaterno= apellidoMaterno;
 		this.correo 		= correo;
-		this.contrasena = contrasena;
+		this.contrasena	    = contrasena;
 	}
+	
+	
 }

@@ -5,10 +5,10 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.orm.jpa.EntityScan;
 
-import com.example.dominio.Alumno;
+import com.example.dominio.Persona;
 
 @EnableAutoConfiguration
-@EntityScan(basePackageClasses = Alumno.class)
+@EntityScan(basePackageClasses = Persona.class)
 @SpringBootApplication
 public class DemoApplication {
 
