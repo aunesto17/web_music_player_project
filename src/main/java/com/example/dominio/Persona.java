@@ -5,11 +5,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
-<<<<<<< HEAD
-// Prueba con Branch alex_baylon
-=======
 
->>>>>>> master
+// Prueba de Control de merge
+
 @Entity
 public class Persona {
 	@Id
