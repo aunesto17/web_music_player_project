@@ -7,6 +7,8 @@ import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 
 // Prueba de Control de merge
+// Probando 123
+// Probando merge del branch
 
 @Entity
 public class Persona {
