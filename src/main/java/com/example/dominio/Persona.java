@@ -5,7 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
-
+// Prueba con Branch alex_baylon
 @Entity
 public class Persona {
 	@Id
