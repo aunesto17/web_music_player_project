@@ -12,7 +12,6 @@ import java.util.Date;
 
 @Entity
 public class Cancion{
-	
 	@Id
 	@SequenceGenerator(name = "Cancion_ID_GENERATOR", sequenceName = "Cancion_ID_SEQ")
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "Cancion_ID_GENERATOR")

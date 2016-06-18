@@ -1,6 +1,7 @@
 package com.example.dominio;
 
 import javax.persistence.*;
+import com.example.dominio.Cancion;
 
 @Entity
 public class Playlist {
@@ -8,6 +9,8 @@ public class Playlist {
     @SequenceGenerator(name = "Playlist_ID_GENERATOR", sequenceName = "Playlist_ID_SEQ")
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "Playlist_ID_GENERATOR")
     public Integer ID_playlist;
+    @ManyToOne
+    @JoinColumn(name = "id")
     public Cancion lista_cancion;
     public String nombre_playlist;
     public Playlist() {
