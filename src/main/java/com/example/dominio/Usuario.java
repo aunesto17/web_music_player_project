@@ -12,8 +12,8 @@ public class Usuario extends Persona {
 	@SequenceGenerator(name = "Persona_ID_GENERATOR", sequenceName = "Persona_ID_SEQ")
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "Persona_ID_GENERATOR")
 	public Integer id;
-	public Integer followers[];
-	public Integer following[];
+	public Integer followers;
+	public Integer following;
 	public Boolean state;
 }
 	
