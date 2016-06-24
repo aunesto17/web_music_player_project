@@ -1,9 +1,12 @@
 package com.example.dominio;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.SequenceGenerator;
 
 @Entity
@@ -16,6 +19,7 @@ public class Artista{
 	public String nombre;	
 	public String genero;
 	
-	public Integer id_album;
-	public Integer id_cancion;
+	  @ManyToMany (mappedBy = "albunes")
+	  private List<Album> listaDeAlbunes;	
+	
 }

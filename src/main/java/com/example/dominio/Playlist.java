@@ -1,23 +1,27 @@
 package com.example.dominio;
 
-import javax.persistence.*;
-import com.example.dominio.Cancion;
+import java.util.List;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.SequenceGenerator;
 
 @Entity
 public class Playlist {
-    @Id
-    @SequenceGenerator(name = "Playlist_ID_GENERATOR", sequenceName = "Playlist_ID_SEQ")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "Playlist_ID_GENERATOR")
-    public Integer ID_playlist;
-    @ManyToOne
-    @JoinColumn(name = "id")
-    public Cancion lista_cancion;
-    public String nombre_playlist;
-    public Playlist() {
-    }
+  @Id
+  @SequenceGenerator(name = "PLAYLIST_ID_GENERATOR", sequenceName = "PLAYLIST_ID_SEQ")
+  @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "PLAYLIST_ID_GENERATOR")
+  private Integer id;
 
-    public Playlist(Cancion lista_cancion, String nombre_playlist) {
-        this.lista_cancion = lista_cancion;
-        this.nombre_playlist = nombre_playlist;
-    }
+  @ManyToMany
+  @JoinTable(name = "playlist_cancion",
+      joinColumns = @JoinColumn(name = "PLAYLIST_ID", referencedColumnName = "ID"),
+      inverseJoinColumns = @JoinColumn(name = "CANCION_ID", referencedColumnName = "ID"))
+  private List<Cancion> canciones;
 }
+

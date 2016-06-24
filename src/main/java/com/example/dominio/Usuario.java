@@ -1,9 +1,14 @@
 package com.example.dominio;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 
 @Entity
@@ -12,8 +17,9 @@ public class Usuario extends Persona {
 	@SequenceGenerator(name = "Persona_ID_GENERATOR", sequenceName = "Persona_ID_SEQ")
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "Persona_ID_GENERATOR")
 	public Integer id;
-	public Integer follower;
-	public Integer followin;
+	public Integer followers;
+	public Integer following;
 	public Boolean state;
+	
 }
 	
