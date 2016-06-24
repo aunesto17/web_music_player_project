@@ -16,7 +16,7 @@ public class Cancion{
 	@SequenceGenerator(name = "Cancion_ID_GENERATOR", sequenceName = "Cancion_ID_SEQ")
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "Cancion_ID_GENERATOR")
 	public Integer id;
-	public FileInputStream archivo;
+	//public FileInputStream archivo;
 	public Integer id_album;
 	public String autor;
 	public String album;
