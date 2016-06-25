@@ -20,7 +20,11 @@ public class Cancion {
   private Integer id;
 
   private String nombre;
-
+  
+//  @ManyToOne
+//  @JoinColumn(name = "ARTISTA_ID")
+//  private Artista artista;
+  
   @ManyToOne
   @JoinColumn(name = "ALBUM_ID")
   private Album album;
