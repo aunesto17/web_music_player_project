@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 
 @Entity
@@ -19,7 +20,10 @@ public class Artista{
 	public String nombre;	
 	public String genero;
 	
-	  @ManyToMany (mappedBy = "albunes")
-	  private List<Album> listaDeAlbunes;	
+	@OneToMany(mappedBy = "artista")
+	private List<Cancion> listacanciones;
+	
+	@ManyToMany (mappedBy = "albunes")
+    private List<Album> listaDeAlbunes;	
 	
 }
