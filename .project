@@ -32,4 +32,10 @@
 		<nature>org.eclipse.m2e.core.maven2Nature</nature>
 		<nature>org.eclipse.wst.common.project.facet.core.nature</nature>
 	</natures>
+	<variableList>
+		<variable>
+			<name>profe</name>
+			<value>file:/Users/aunesto17/Desktop/demo-is1-2016-1</value>
+		</variable>
+	</variableList>
 </projectDescription>
