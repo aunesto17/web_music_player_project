@@ -7,6 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.JoinColumn;
 
@@ -22,10 +23,14 @@ public class Album{
 	public String nombre;	
 	public Date fechaCreacion;
 	
-	  @ManyToMany
-	  @JoinTable(name = "album_artista",
+	@OneToMany(mappedBy = "album")
+	private List<Cancion> listacanciones;
+	
+	
+	@ManyToMany
+	@JoinTable(name = "album_artista",
 	      joinColumns = @JoinColumn(name = "ALBUM_ID", referencedColumnName = "ID"),
 	      inverseJoinColumns = @JoinColumn(name = "ARTISTA_ID", referencedColumnName = "ID"))
-	  private List<Artista> albunes;
+	private List<Artista> listaArtistas;
 	
 }
