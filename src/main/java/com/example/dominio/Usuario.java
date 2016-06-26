@@ -33,7 +33,55 @@ public class Usuario extends Persona {
 	private List<Usuario> seguidores;
 	
 	//relaciones para el timeline
-	@OneToMany(mappedBy="usuario")
-	private List<Timeline> timeline;
+		@OneToMany(mappedBy="usuario")
+		private List<Timeline> timeline;
+	
+	public Integer getID_usuario() {
+		return ID_usuario;
+	}
+
+	public void setID_usuario(Integer iD_usuario) {
+		ID_usuario = iD_usuario;
+	}
+
+	public String getCorreo() {
+		return correo;
+	}
+
+	public void setCorreo(String correo) {
+		this.correo = correo;
+	}
+
+	public String getContrasena() {
+		return contrasena;
+	}
+
+	public void setContrasena(String contrasena) {
+		this.contrasena = contrasena;
+	}
+
+	public Boolean getState() {
+		return state;
+	}
+
+	public void setState(Boolean state) {
+		this.state = state;
+	}
+
+	public List<Usuario> getSeguidores() {
+		return seguidores;
+	}
+
+	public void setSeguidores(List<Usuario> seguidores) {
+		this.seguidores = seguidores;
+	}
+
+	public List<Timeline> getTimeline() {
+		return timeline;
+	}
+
+	public void setTimeline(List<Timeline> timeline) {
+		this.timeline = timeline;
+	}
 }
 	
