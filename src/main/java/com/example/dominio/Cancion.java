@@ -10,6 +10,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
+import java.io.FileInputStream;
+import java.util.Date;	
 
 @Entity
 public class Cancion {
@@ -17,9 +19,19 @@ public class Cancion {
   @Id
   @SequenceGenerator(name = "CANCION_ID_GENERATOR", sequenceName = "CANCION_ID_SEQ")
   @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "CANCION_ID_GENERATOR")
-  private Integer id;
+  private Integer Id_cancion;
 
   private String nombre;
+  public FileInputStream archivo;
+  public Integer id_album;
+  public String autor;
+  //public String album;
+  public String genero;
+  public double duracion;
+  public Date fecha_pub;
+  public String letra;
+  public Integer tamano;
+  public Double calificacion;
   
 //  @ManyToOne
 //  @JoinColumn(name = "ARTISTA_ID")
