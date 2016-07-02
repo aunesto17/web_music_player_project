@@ -1,18 +1,24 @@
 package com.example.dominio;
 
+import java.util.Date;
+
 import javax.persistence.*;
 
 @Entity
-
 public class Timeline {
-    @Id
-    @SequenceGenerator(name = "Timeline_ID_GENERATOR", sequenceName = "Timeline_ID_SEQ")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "Timeline_ID_GENERATOR")
-    public Integer ID_timeline;
-    public Integer ID_cancion;
-    public String date;
-    public Timeline(Integer ID_cancion,String date){
-        this.ID_cancion=ID_cancion;
-        this.date=date;
-    }
+	@Id
+	@SequenceGenerator(name = "TIMELINE_ID_GENERATOR", sequenceName = "TIMELINE_ID_SEQ")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "TIMELINE_ID_GENERATOR")
+	private Integer ID_timeline;
+    
+    @ManyToOne
+    @PrimaryKeyJoinColumn(name="USUARIOID", referencedColumnName="ID_usuario")
+    private Usuario usuario;
+    
+    @ManyToOne
+    @PrimaryKeyJoinColumn(name="CANCIONID", referencedColumnName="ID_cancion")
+    private Cancion cancion; 
+    
+    @Column(name = "fecha_reproduccion")
+    private Date date;
 }

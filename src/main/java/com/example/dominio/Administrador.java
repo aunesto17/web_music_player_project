@@ -7,9 +7,12 @@ import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 
 @Entity
-public class Administrador extends Persona {
+public class Administrador {
 	@Id
 	@SequenceGenerator(name = "Persona_ID_GENERATOR", sequenceName = "Persona_ID_SEQ")
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "Persona_ID_GENERATOR")
-	public Integer id;
+	private Integer ID_adm;
+	private String nombres;
+	private String apellidoPaterno;
+	private String apellidoMaterno;
 }

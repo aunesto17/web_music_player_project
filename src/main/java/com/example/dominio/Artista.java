@@ -16,14 +16,13 @@ public class Artista{
 	@Id
 	@SequenceGenerator(name = "Artista_ID_GENERATOR", sequenceName = "Artista_ID_SEQ")
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "Artista_ID_GENERATOR")
-	public Integer id;
-	public String nombre;	
-	public String genero;
+	private Integer ID_artista;
+	private String nombre;	
+	private String genero;
 	
 	@OneToMany(mappedBy = "artista")
-	private List<Cancion> listacanciones;
+	private List<Cancion> listaCanciones;
 	
-	@ManyToMany (mappedBy = "albunes")
-    private List<Album> listaDeAlbunes;	
-	
+	//@ManyToMany (mappedBy = "album")
+    //private List<Album> listaAlbums;	
 }

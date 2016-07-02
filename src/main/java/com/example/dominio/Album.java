@@ -18,17 +18,17 @@ public class Album{
 	@Id
 	@SequenceGenerator(name = "Album_ID_GENERATOR", sequenceName = "Album_ID_SEQ")
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "Album_ID_GENERATOR")
-	public Integer id;
-	public String nombre;	
-	public Date fechaCreacion;
+	private Integer ID_album;
+	private String nombre;	
+	private Date fechaCreacion;
 	
-	@OneToMany(mappedBy = "album")
-	private List<Cancion> listacanciones;
+	//@OneToMany(mappedBy = "album")
+	//private List<Cancion> listaCanciones;
 	
 	
 	@ManyToMany
 	@JoinTable(name = "album_artista",
-	      joinColumns = @JoinColumn(name = "ALBUM_ID", referencedColumnName = "ID"),
-	      inverseJoinColumns = @JoinColumn(name = "ARTISTA_ID", referencedColumnName = "ID"))
+	      joinColumns = @JoinColumn(name = "ALBUM_ID", referencedColumnName = "ID_album"),
+	      inverseJoinColumns = @JoinColumn(name = "ARTISTA_ID", referencedColumnName = "ID_artista"))
 	private List<Artista> listaArtistas;
 }

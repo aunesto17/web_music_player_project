@@ -13,17 +13,17 @@ import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 
 @Entity
-public class Usuario extends Persona {
+public class Usuario {
 	@Id
 	@SequenceGenerator(name = "Persona_ID_GENERATOR", sequenceName = "Persona_ID_SEQ")
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "Persona_ID_GENERATOR")
-	public 	Integer ID_usuario;
+	private Integer ID_usuario;
+	private String nombres;
+	private String apellidoPaterno;
+	private String apellidoMaterno;
 	private String correo;
 	private String contrasena;
-	public 	Boolean state; // Activo o Inactivo
-	//Viendo si conviene o no
-	//public Integer followers;
-	//public Integer following;
+	private Boolean state; // Activo o Inactivo
 	
 	//Crear tabla seguidores_seguidos	
 	@ManyToMany
@@ -33,55 +33,7 @@ public class Usuario extends Persona {
 	private List<Usuario> seguidores;
 	
 	//relaciones para el timeline
-		@OneToMany(mappedBy="usuario")
-		private List<Timeline> timeline;
-	
-	public Integer getID_usuario() {
-		return ID_usuario;
-	}
-
-	public void setID_usuario(Integer iD_usuario) {
-		ID_usuario = iD_usuario;
-	}
-
-	public String getCorreo() {
-		return correo;
-	}
-
-	public void setCorreo(String correo) {
-		this.correo = correo;
-	}
-
-	public String getContrasena() {
-		return contrasena;
-	}
-
-	public void setContrasena(String contrasena) {
-		this.contrasena = contrasena;
-	}
-
-	public Boolean getState() {
-		return state;
-	}
-
-	public void setState(Boolean state) {
-		this.state = state;
-	}
-
-	public List<Usuario> getSeguidores() {
-		return seguidores;
-	}
-
-	public void setSeguidores(List<Usuario> seguidores) {
-		this.seguidores = seguidores;
-	}
-
-	public List<Timeline> getTimeline() {
-		return timeline;
-	}
-
-	public void setTimeline(List<Timeline> timeline) {
-		this.timeline = timeline;
-	}
+	@OneToMany(mappedBy="usuario")
+	private List<Timeline> canciones;
 }
 	
