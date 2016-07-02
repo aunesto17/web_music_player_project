@@ -22,10 +22,6 @@ public class Album{
 	private String nombre;	
 	private Date fechaCreacion;
 	
-	//@OneToMany(mappedBy = "album")
-	//private List<Cancion> listaCanciones;
-	
-	
 	@ManyToMany
 	@JoinTable(name = "album_artista",
 	      joinColumns = @JoinColumn(name = "ALBUM_ID", referencedColumnName = "ID_album"),

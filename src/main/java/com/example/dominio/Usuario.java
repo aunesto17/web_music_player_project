@@ -35,5 +35,6 @@ public class Usuario {
 	//relaciones para el timeline
 	@OneToMany(mappedBy="usuario")
 	private List<Timeline> canciones;
+	
 }
 	
