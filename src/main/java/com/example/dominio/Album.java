@@ -31,5 +31,4 @@ public class Album{
 	      joinColumns = @JoinColumn(name = "ALBUM_ID", referencedColumnName = "ID"),
 	      inverseJoinColumns = @JoinColumn(name = "ARTISTA_ID", referencedColumnName = "ID"))
 	private List<Artista> listaArtistas;
-	
 }
