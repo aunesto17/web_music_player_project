@@ -18,12 +18,15 @@ public class WebPlayerControlador {
 	//Controlador usuario
 	@Autowired
 	UsuarioRepositorio usuarioRepositorio;
+<<<<<<< HEAD
 	@RequestMapping(value = "account/current", method = RequestMethod.GET)
 	public String account(Principal principal) {
 		return "redirect:/" + principal.getName() + "/playlists";
 	}
 	
 	
+=======
+>>>>>>> master
 	@Autowired
 	AdministradorRepositorio AdministradorRepositorio;
 	
