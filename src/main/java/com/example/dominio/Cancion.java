@@ -11,6 +11,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
+
 //import java.io.FileInputStream;
 import java.util.Date;	
 
@@ -22,13 +23,8 @@ public class Cancion {
   @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "CANCION_ID_GENERATOR")
   private Integer 	ID_cancion;
   private String 	nombre;
-  private String 	archivo;
-  private String 	autor;
   private String 	genero;
-  private Double 	duracion;
-  private Date 		fecha_pub;
   private String 	letra;
-  private Integer 	tamano;
   private Double 	calificacion;
   
   @ManyToOne
@@ -44,4 +40,65 @@ public class Cancion {
   
   @OneToMany(mappedBy = "cancion")
   private List<Timeline> usuarios;
+  
+  public Cancion(String nombre, String genero, String letra, Album album, Artista artista) {
+      this.nombre 		= nombre;
+      this.genero 		= genero;
+      this.letra  		= letra;
+      this.album		= album;
+      this.artista		= artista;
+      this.calificacion = 0.00;
+  }
+  
+  public Integer getId(){
+	  return ID_cancion;
+  }
+
+  public String getNombre() {
+	  return nombre;
+  }
+
+  public void setNombre(String nombre) {
+	  this.nombre = nombre;
+  }
+
+  public String getGenero() {
+	  return genero;
+  }
+
+  public void setGenero(String genero) {
+	  this.genero = genero;
+  }
+
+  public String getLetra() {
+	  return letra;
+  }
+
+  public void setLetra(String letra) {
+	  this.letra = letra;
+  }
+
+  public Double getCalificacion() {
+	  return calificacion;
+  }
+
+  public void setCalificacion(Double calificacion) {
+	  this.calificacion = calificacion;
+  }
+
+  public Artista getArtista() {
+	  return artista;
+  }
+
+  public void setArtista(Artista artista) {
+	  this.artista = artista;
+  }
+
+  public Album getAlbum() {
+	  return album;
+  }
+
+  public void setAlbum(Album album) {
+	  this.album = album;
+  }  
 }

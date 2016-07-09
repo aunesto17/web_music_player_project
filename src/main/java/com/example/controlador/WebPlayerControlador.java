@@ -16,5 +16,8 @@ import com.example.repositorio.AdministradorRepositorio;
 public class WebPlayerControlador {
 	@Autowired
 	UsuarioRepositorio usuarioRepositorio;
+	@Autowired
 	AdministradorRepositorio AdministradorRepositorio;
+	
+	
 }

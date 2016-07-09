@@ -1,6 +1,7 @@
 package com.example.dominio;
 
 import java.util.Date;
+import java.sql.Timestamp;
 
 import javax.persistence.*;
 
@@ -20,5 +21,5 @@ public class Timeline {
     private Cancion cancion; 
     
     @Column(name = "fecha_reproduccion")
-    private Date date;
+    private Timestamp date;
 }
