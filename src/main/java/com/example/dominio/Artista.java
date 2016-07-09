@@ -10,18 +10,16 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.JoinColumn;
 import javax.persistence.FetchType;
-import java.io.Serializable;
 import java.util.List;
 
-@SuppressWarnings("serial")
 @Entity
 @Table(name = "artista")
-public class Artista implements Serializable, BaseEntity<Long>, Followable {
+public class Artista {
 
     @Id
     @SequenceGenerator(name = "ARTISTA_ID_GENERATOR", sequenceName = "ARTISTA_ID_SEQ")
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ARTISTA_ID_GENERATOR")
-    private Integer id;
+    private Long id;
 
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "feed_id", nullable = false)
@@ -40,18 +38,18 @@ public class Artista implements Serializable, BaseEntity<Long>, Followable {
 
     }
 
-    public Author(String name, String genero) {
+    public Artista(String nombre, String genero) {
         this.nombre = nombre;
         this.genero = genero;
     }
 
-    public Author(String nombre, String genero, Feed feed) {
+    public Artista(String nombre, String genero, Feed feed) {
         this.nombre = nombre;
         this.genero = genero;
         this.feed = feed;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
@@ -90,4 +88,6 @@ public class Artista implements Serializable, BaseEntity<Long>, Followable {
     public String getLink() {
         return "artista/" + Long.toString(id);
     }
+
+
 }

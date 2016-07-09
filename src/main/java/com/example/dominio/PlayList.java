@@ -1,11 +1,9 @@
 package com.example.dominio;
 
 import javax.persistence.*;
-import java.sql.Time;
 import java.sql.Timestamp;
 import java.util.List;
 
-@SuppressWarnings("serial")
 @Entity
 @Table(name = "playlist")
 public class PlayList implements PlayListable, BaseEntity<Long>, Followable {
