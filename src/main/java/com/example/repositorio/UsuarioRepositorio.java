@@ -8,4 +8,5 @@ import com.example.dominio.Usuario;
 
 public interface UsuarioRepositorio extends CrudRepository<Usuario, Integer> {
 	List<Usuario> findAll();
+	//public Usuario findById(Integer ID_usuario);
 }

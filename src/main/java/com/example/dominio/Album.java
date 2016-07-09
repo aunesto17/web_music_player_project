@@ -10,6 +10,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.JoinColumn;
 
+import java.sql.Timestamp;
 import java.util.Date;
 import java.util.List;
 
@@ -18,18 +19,39 @@ public class Album{
 	@Id
 	@SequenceGenerator(name = "Album_ID_GENERATOR", sequenceName = "Album_ID_SEQ")
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "Album_ID_GENERATOR")
-	public Integer id;
-	public String nombre;	
-	public Date fechaCreacion;
-	
-	@OneToMany(mappedBy = "album")
-	private List<Cancion> listacanciones;
-	
+	private Integer ID_album;
+	private String nombre;	
+	private Timestamp fechaCreacion;
+
 	
 	@ManyToMany
 	@JoinTable(name = "album_artista",
-	      joinColumns = @JoinColumn(name = "ALBUM_ID", referencedColumnName = "ID"),
-	      inverseJoinColumns = @JoinColumn(name = "ARTISTA_ID", referencedColumnName = "ID"))
+	      joinColumns = @JoinColumn(name = "ALBUM_ID", referencedColumnName = "ID_album"),
+	      inverseJoinColumns = @JoinColumn(name = "ARTISTA_ID", referencedColumnName = "ID_artista"))
 	private List<Artista> listaArtistas;
 	
+	public Album (String nombre, Timestamp fecha_c){
+		this.nombre 		= nombre;
+		this.fechaCreacion 	= fecha_c;
+	}
+	
+	public Integer getId(){
+		return ID_album;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public Date getFechaCreacion() {
+		return fechaCreacion;
+	}
+
+	public void setFechaCreacion(Timestamp fechaCreacion) {
+		this.fechaCreacion = fechaCreacion;
+	}
 }
