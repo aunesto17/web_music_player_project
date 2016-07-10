@@ -1,5 +1,6 @@
 package com.example.controlador;
 
+import java.security.Principal;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,8 +15,15 @@ import com.example.repositorio.AdministradorRepositorio;
 
 @RestController
 public class WebPlayerControlador {
+	//Controlador usuario
 	@Autowired
 	UsuarioRepositorio usuarioRepositorio;
+	@RequestMapping(value = "account/current", method = RequestMethod.GET)
+	public String account(Principal principal) {
+		return "redirect:/" + principal.getName() + "/playlists";
+	}
+	
+	
 	@Autowired
 	AdministradorRepositorio AdministradorRepositorio;
 	

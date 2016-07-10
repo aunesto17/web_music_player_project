@@ -10,6 +10,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.JoinColumn;
 
+import java.sql.Timestamp;
 import java.util.Date;
 import java.util.List;
 
@@ -20,7 +21,7 @@ public class Album{
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "Album_ID_GENERATOR")
 	private Integer ID_album;
 	private String nombre;	
-	private Date fechaCreacion;
+	private Timestamp fechaCreacion;
 
 	
 	@ManyToMany
@@ -29,9 +30,9 @@ public class Album{
 	      inverseJoinColumns = @JoinColumn(name = "ARTISTA_ID", referencedColumnName = "ID_artista"))
 	private List<Artista> listaArtistas;
 	
-	public Album (String nombre, Date fechaCreacion){
+	public Album (String nombre, Timestamp fecha_c){
 		this.nombre 		= nombre;
-		this.fechaCreacion 	= fechaCreacion;
+		this.fechaCreacion 	= fecha_c;
 	}
 	
 	public Integer getId(){
@@ -50,7 +51,7 @@ public class Album{
 		return fechaCreacion;
 	}
 
-	public void setFechaCreacion(Date fechaCreacion) {
+	public void setFechaCreacion(Timestamp fechaCreacion) {
 		this.fechaCreacion = fechaCreacion;
 	}
 }

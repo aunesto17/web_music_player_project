@@ -24,8 +24,6 @@ public class Playlist {
   private Integer	ID_playlist;
   private String 	nombre;
   private Timestamp fecha_creacion;
-  //private Date 		fecha_creacion;
-  //private Integer 	usuario;
 
   @ManyToMany
   @JoinTable(name = "playlist_cancion",
