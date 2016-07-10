@@ -2,6 +2,7 @@ package com.example.dominio;
 
 import java.util.Date;
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -23,7 +24,7 @@ public class Playlist {
   @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "PLAYLIST_ID_GENERATOR")
   private Integer	ID_playlist;
   private String 	nombre;
-  private Timestamp fecha_creacion;
+  private String 	fecha_creacion;
 
   @ManyToMany
   @JoinTable(name = "playlist_cancion",
@@ -32,13 +33,13 @@ public class Playlist {
   private List<Cancion> canciones;
   
   @ManyToOne
-  @JoinColumn(name = "usuario_id")
+  @JoinColumn(name = "ID_usuario")
   private Usuario usuario;
   
-  public Playlist(String nombre,Timestamp fecha_creacion,Usuario usuario){
-	  this.nombre = nombre;
-	  this.fecha_creacion = fecha_creacion;
-	  this.usuario = usuario;
+  public Playlist(String nombre,Integer usuario){
+	  this.nombre 		= nombre;
+	  this.ID_playlist 	= usuario;
+	  this.fecha_creacion = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());
   }
 
   public Integer getID_playlist() {
@@ -53,13 +54,13 @@ public class Playlist {
 	  this.nombre = nombre;
   }
 
-  public Timestamp getFecha_creacion() {
+  public String getFecha_creacion() {
 	  return fecha_creacion;
   }
 
-  public void setFecha_creacion(Timestamp fecha_creacion) {
+  public void setFecha_creacion(String fecha_creacion) {
 	  this.fecha_creacion = fecha_creacion;
-  }
+  }	
 
   public Usuario getUsuario() {
 	  return usuario;
@@ -68,6 +69,19 @@ public class Playlist {
   public void setUsuario(Usuario usuario) {
 	  this.usuario = usuario;
   }
-   
+  
+  public boolean find_Cancion(Cancion cancion){
+	  for(int i = 0; i < canciones.size(); i++){
+		  if(canciones.get(i) == cancion){
+			  return true;
+		  }
+	  }
+	  return false;
+  }
+  
+  public void add_Cancion(Cancion cancion){
+	  canciones.add(cancion);
+	  return;
+  }
 }
 

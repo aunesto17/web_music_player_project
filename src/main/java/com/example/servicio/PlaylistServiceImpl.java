@@ -13,8 +13,8 @@ public class PlaylistServiceImpl {
 	@Autowired
 	private PlaylistRepositorio playlistRepositorio;
 	
-	public Playlist crearPlaylist(String nombre, Timestamp fecha_c,Usuario usr) {
-        Playlist playlist = new Playlist(nombre,fecha_c,usr);
+	public Playlist crearPlaylist(String nombre,Integer usr) {
+        Playlist playlist = new Playlist(nombre,usr);
 	       playlistRepositorio.save(playlist);
 	       return playlist;
 	}

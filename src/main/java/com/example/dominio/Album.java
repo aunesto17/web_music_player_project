@@ -22,13 +22,13 @@ public class Album{
 	private Integer ID_album;
 	private String nombre;	
 	private Timestamp fechaCreacion;
-
 	
 	@ManyToMany
 	@JoinTable(name = "album_artista",
 	      joinColumns = @JoinColumn(name = "ALBUM_ID", referencedColumnName = "ID_album"),
 	      inverseJoinColumns = @JoinColumn(name = "ARTISTA_ID", referencedColumnName = "ID_artista"))
 	private List<Artista> listaArtistas;
+	
 	
 	public Album (String nombre, Timestamp fecha_c){
 		this.nombre 		= nombre;
@@ -54,4 +54,13 @@ public class Album{
 	public void setFechaCreacion(Timestamp fechaCreacion) {
 		this.fechaCreacion = fechaCreacion;
 	}
+
+	public List<Artista> getListaArtistas() {
+		return listaArtistas;
+	}
+
+	public void setListaArtistas(List<Artista> listaArtistas) {
+		this.listaArtistas = listaArtistas;
+	}
+
 }
